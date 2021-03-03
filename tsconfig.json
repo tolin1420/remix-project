@@ -39,7 +39,8 @@
       "@remix-ui/toaster": ["libs/remix-ui/toaster/src/index.ts"],
       "@remix-ui/file-explorer": ["libs/remix-ui/file-explorer/src/index.ts"],
       "@remix-ui/workspace": ["libs/remix-ui/workspace/src/index.ts"],
-      "@remix-ui/solidity-compiler": ["libs/remix-ui/solidity-compiler/src/index.ts"]
+      "@remix-ui/solidity-compiler": ["libs/remix-ui/solidity-compiler/src/index.ts"],
+      "@remix-ui/publish-to-storage": ["libs/remix-ui/publish-to-storage/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
