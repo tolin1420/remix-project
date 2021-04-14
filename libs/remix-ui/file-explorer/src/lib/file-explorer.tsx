@@ -128,9 +128,9 @@ export const FileExplorer = (props: FileExplorerProps) => {
 
   useEffect(() => {
     if (state.fileManager) {
-      filesProvider.event.register('fileExternallyChanged', fileExternallyChanged)
-      filesProvider.event.register('fileRenamedError', fileRenamedError)
-      filesProvider.event.register('rootFolderChanged', rootFolderChanged)
+      filesProvider.event.on('fileExternallyChanged', fileExternallyChanged)
+      filesProvider.event.on('fileRenamedError', fileRenamedError)
+      filesProvider.event.on('rootFolderChanged', rootFolderChanged)
     }
   }, [state.fileManager])
 
@@ -154,14 +154,14 @@ export const FileExplorer = (props: FileExplorerProps) => {
 
   useEffect(() => {
     // unregister event to update state in callback
-    if (filesProvider.event.registered.fileAdded) filesProvider.event.unregister('fileAdded', fileAdded)
-    if (filesProvider.event.registered.folderAdded) filesProvider.event.unregister('folderAdded', folderAdded)
-    if (filesProvider.event.registered.fileRemoved) filesProvider.event.unregister('fileRemoved', fileRemoved)
-    if (filesProvider.event.registered.fileRenamed) filesProvider.event.unregister('fileRenamed', fileRenamed)
-    filesProvider.event.register('fileAdded', fileAdded)
-    filesProvider.event.register('folderAdded', folderAdded)
-    filesProvider.event.register('fileRemoved', fileRemoved)
-    filesProvider.event.register('fileRenamed', fileRenamed)
+    //if (filesProvider.event.registered.fileAdded) filesProvider.event.off('fileAdded', fileAdded)
+    //if (filesProvider.event.registered.folderAdded) filesProvider.event.off('folderAdded', folderAdded)
+    //if (filesProvider.event.registered.fileRemoved) filesProvider.event.off('fileRemoved', fileRemoved)
+    //if (filesProvider.event.registered.fileRenamed) filesProvider.event.off('fileRenamed', fileRenamed)
+    filesProvider.event.on('fileAdded', fileAdded)
+    filesProvider.event.on('folderAdded', folderAdded)
+    filesProvider.event.on('fileRemoved', fileRemoved)
+    filesProvider.event.on('fileRenamed', fileRenamed)
   }, [state.files])
 
   useEffect(() => {
