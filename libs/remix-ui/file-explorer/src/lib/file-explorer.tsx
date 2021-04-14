@@ -154,10 +154,10 @@ export const FileExplorer = (props: FileExplorerProps) => {
 
   useEffect(() => {
     // unregister event to update state in callback
-    //if (filesProvider.event.registered.fileAdded) filesProvider.event.off('fileAdded', fileAdded)
-    //if (filesProvider.event.registered.folderAdded) filesProvider.event.off('folderAdded', folderAdded)
-    //if (filesProvider.event.registered.fileRemoved) filesProvider.event.off('fileRemoved', fileRemoved)
-    //if (filesProvider.event.registered.fileRenamed) filesProvider.event.off('fileRenamed', fileRenamed)
+    // if (filesProvider.event.registered.fileAdded) filesProvider.event.off('fileAdded', fileAdded)
+    // if (filesProvider.event.registered.folderAdded) filesProvider.event.off('folderAdded', folderAdded)
+    // if (filesProvider.event.registered.fileRemoved) filesProvider.event.off('fileRemoved', fileRemoved)
+    // if (filesProvider.event.registered.fileRenamed) filesProvider.event.off('fileRenamed', fileRenamed)
     filesProvider.event.on('fileAdded', fileAdded)
     filesProvider.event.on('folderAdded', folderAdded)
     filesProvider.event.on('fileRemoved', fileRemoved)
