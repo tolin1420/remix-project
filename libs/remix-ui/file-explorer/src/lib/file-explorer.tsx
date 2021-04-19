@@ -158,6 +158,11 @@ export const FileExplorer = (props: FileExplorerProps) => {
     // if (filesProvider.event.registered.folderAdded) filesProvider.event.off('folderAdded', folderAdded)
     // if (filesProvider.event.registered.fileRemoved) filesProvider.event.off('fileRemoved', fileRemoved)
     // if (filesProvider.event.registered.fileRenamed) filesProvider.event.off('fileRenamed', fileRenamed)
+    filesProvider.event.off('fileAdded', fileAdded)
+    filesProvider.event.off('folderAdded', folderAdded)
+    filesProvider.event.off('fileRemoved', fileRemoved)
+    filesProvider.event.off('fileRenamed', fileRenamed)
+
     filesProvider.event.on('fileAdded', fileAdded)
     filesProvider.event.on('folderAdded', folderAdded)
     filesProvider.event.on('fileRemoved', fileRemoved)
