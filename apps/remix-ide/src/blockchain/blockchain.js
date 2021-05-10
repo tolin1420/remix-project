@@ -257,6 +257,10 @@ class Blockchain {
       }
       if (funABI.type === 'fallback') data.dataHex = value
 
+      if (data) {
+        data.contractName = contractName
+        data.contractABI = contractAbi
+      }
       const useCall = funABI.stateMutability === 'view' || funABI.stateMutability === 'pure'
       this.runTx({ to: address, data, useCall }, confirmationCb, continueCb, promptCb, (error, txResult, _address, returnValue) => {
         if (error) {
@@ -461,7 +465,7 @@ class Blockchain {
 
       const isVM = this.executionContext.isVM()
       if (isVM) {
-        const vmError = txExecution.checkVMError(txResult)
+        const vmError = txExecution.checkVMError(txResult, args.data.contractABI)
         if (vmError.error) {
           return cb(vmError.message)
         }
